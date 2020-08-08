@@ -1,3 +1,10 @@
+//
+//  ContentView.swift
+//  Fitness
+//
+//  Created by Tamas Szakacsi on 06.08.20.
+//
+
 import SwiftUI
 import HealthKit
 import UIKit
@@ -23,9 +30,8 @@ struct ContentView2: View {
     
 
 
-    func getData() -> (Int) {
+    func getData() {
         authorizeHealthKit()
-        return val
     }
     
     func authorizeHealthKit() {
