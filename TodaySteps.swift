@@ -18,10 +18,10 @@ struct ContentView2: View {
             Button(action: {
                 getData()
             }) {
-            Text("get the Health data")
+            Text("Get the Help Data")
             
             }
-            Text("\(val)")
+            Text("\(val))")
             
         }.navigationTitle("Health Informations")
         
@@ -30,8 +30,9 @@ struct ContentView2: View {
     
 
 
-    func getData() {
+    func getData() -> (Int) {
         authorizeHealthKit()
+        return val
     }
     
     func authorizeHealthKit() {
@@ -40,6 +41,7 @@ struct ContentView2: View {
         healthStore.requestAuthorization(toShare: share, read: read) { (chk, error) in
             if (chk){
                 print("Permission Granted")
+                todaySteps()
             }
             
         }
@@ -61,6 +63,7 @@ struct ContentView2: View {
                     if let count = statistic.sumQuantity() {
                         let val = count.doubleValue(for: HKUnit.count())
                         print("today Steps: \(val)")
+                        
                     }
                     }
             }
